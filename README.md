@@ -68,12 +68,12 @@ This dashboard is designed to allow users to:
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/soham-0-0-7/KanbanBoardBackend.git
-git clone https://github.com/soham-0-0-7/KanbanBoardFrontend.git
 cd KanbanBoardBackend
 npm install
 npm run start
 ```
 ```bash
+git clone https://github.com/soham-0-0-7/KanbanBoardFrontend.git
 cd KanbanBoardFrontend
 npm install
 npm run dev
