@@ -106,7 +106,7 @@ function Dashboard() {
   
     socketRef.on("subtask:created",(subtask)=>{
       console.log("Subtask Created:", subtask);
-      dispatch(addSubtask({id: subtask.id,name:subtask.name, taskid:selectedTaskId}));
+      dispatch(addSubtask({subtaskid: subtask.subtaskid,name:subtask.name, taskid:selectedTaskId}));
     })
     
     return () => {

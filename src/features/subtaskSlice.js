@@ -11,9 +11,11 @@ export const subtaskSlice = createSlice({
     reducers:{
         addSubtask: (state, action) => {
             const s = {
+                subtaskid: action.payload.subtaskid,
                 name: action.payload.name,
                 taskid: action.payload.taskid,
             }
+
             // socketRef.emit("subtask:create", {
             //     subtaskname: action.payload.subtaskname,
             //     taskid: action.payload.taskid,

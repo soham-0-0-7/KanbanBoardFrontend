@@ -29,6 +29,7 @@ function SubtaskDialog({ onClose }) {
   }, [selectedTaskId, dispatch]);
 
   const handleDeleteSubtask = (subtaskid) => {
+    console.log(subtaskid);
     socketRef.emit("subtask:delete", { subtaskid });
     socketRef.on("subtask:deleted", (subtaskid) => {
       dispatch(deleteSubtask(subtaskid));
@@ -68,14 +69,15 @@ function SubtaskDialog({ onClose }) {
           <p className="text-sm text-gray-500">No subtasks available.</p>
         ) : (
           <div className="space-y-4">
-            {subtasks.map((subtask) => (
+            {
+            subtasks.map((subtask) => ( 
               <div
                 key={subtask.subtaskid}
                 className="flex justify-between items-center bg-gray-100 px-4 py-3 rounded-lg shadow border"
               >
                 <div>
                   <h3 className="text-sm font-semibold text-gray-800">
-                    {subtask.name}
+                    {subtask.name}+{subtask.subtaskid}
                   </h3>
                 </div>
                 <button
