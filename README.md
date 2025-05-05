@@ -1,4 +1,4 @@
-# 🧩 Full Stack Task Collaboration Dashboard
+# 🧩 Full Stack Task Collaboration Dashboard - Creative Upaay Web Development Internship Assignment
 
 **A full-stack task management dashboard** built as part of the **Creative Upaay Web Development Internship Assignment**. The application is a collaborative platform to manage tasks, events, and subtasks, with real-time updates, due date alerts, and a smooth drag-and-drop interface.
 
