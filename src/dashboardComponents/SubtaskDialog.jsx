@@ -77,7 +77,9 @@ function SubtaskDialog({ onClose }) {
               >
                 <div>
                   <h3 className="text-sm font-semibold text-gray-800">
-                    {subtask.name}+{subtask.subtaskid}
+                    {subtask.name}
+                    
+                    {/* +{subtask.subtaskid} */}
                   </h3>
                 </div>
                 <button
