@@ -84,7 +84,7 @@ npx prisma migrate dev --name initial_migration
 npm run start
 ```
 
-### 1. Clone the frontend Repository - run locally
+### 2. Clone the frontend Repository - run locally
 
 ```bash
 git clone https://github.com/soham-0-0-7/KanbanBoardFrontend.git
