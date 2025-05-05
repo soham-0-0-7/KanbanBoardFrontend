@@ -16,9 +16,10 @@ const App = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');  // Retrieve token from localStorage
+    const url = import.meta.env.VITE_API_AUTH_URL; // Base URL for API
     if (token) {
       // Send token in Authorization header as "Bearer <token>"
-      fetch('http://localhost:5000/api/auth/verifyToken', {
+      fetch(`${url}/verifyToken`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
