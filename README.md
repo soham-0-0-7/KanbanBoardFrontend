@@ -1,17 +1,3 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # 🧩 Full Stack Task Collaboration Dashboard
 
 **A full-stack task management dashboard** built as part of the **Creative Upaay Web Development Internship Assignment**. The application is a collaborative platform to manage tasks, events, and subtasks, with real-time updates, due date alerts, and a smooth drag-and-drop interface.
@@ -78,5 +64,35 @@ This dashboard is designed to allow users to:
 
 ---
 > project deployed - https://kanban-board-frontend-y74a.vercel.app/
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/soham-0-0-7/KanbanBoardBackend.git
+git clone https://github.com/soham-0-0-7/KanbanBoardFrontend.git
+cd KanbanBoardBackend
+npm install
+npm run start
+{ close and go to root folder }
+cd KanbanBoardFrontend
+npm install
+npm run dev
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
