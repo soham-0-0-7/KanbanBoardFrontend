@@ -70,7 +70,7 @@ This dashboard is designed to allow users to:
 Due to high latency and cold start times on free hosting platforms (like Vercel and Render), the live demo may experience delays in loading or inconsistent performance.
 For the best experience, it's recommended to run the project locally by following the instructions in the How to Run Locally section above.
 
-### 1. Clone the Repository
+### 1. Clone the Repository - run locally
 ```bash
 git clone https://github.com/soham-0-0-7/KanbanBoardBackend.git
 cd KanbanBoardBackend
