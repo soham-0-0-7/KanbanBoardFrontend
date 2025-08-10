@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { socketRef } from "./socket.js";
+// import { socketRef } from "./socket.js";
 
 const initialEventState = {
     selectedEvent : null,

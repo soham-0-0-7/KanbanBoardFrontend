@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useDrag, useDrop } from "react-dnd";
 import { socketRef } from "../features/socket.js";
-import { deleteTask, setSelectedTask, setSelectedTaskName, syncTask, updateTaskStatus } from "../features/taskSlice.js";
+import {
+  deleteTask,
+  setSelectedTask,
+  setSelectedTaskName,
+  syncTask,
+  updateTaskStatus,
+} from "../features/taskSlice.js";
 import { Trash2, MoreVertical, Plus } from "lucide-react";
 import SubtaskDialog from "./SubtaskDialog.jsx";
 import TaskForm from "../forms/TaskForm.jsx";
-
 
 const priorityColors = {
   low: "text-orange-500",
@@ -32,7 +37,9 @@ const Task = ({ task, onDeleteTask, onOpenSubtasks }) => {
     >
       <div className="flex justify-between items-center">
         <span
-          className={`text-xs font-semibold px-2 py-1 rounded-full border ${priorityColors[task.priority]} border-current bg-gray-50`}
+          className={`text-xs font-semibold px-2 py-1 rounded-full border ${
+            priorityColors[task.priority]
+          } border-current bg-gray-50`}
         >
           {task.priority}
         </span>
@@ -43,13 +50,13 @@ const Task = ({ task, onDeleteTask, onOpenSubtasks }) => {
       <h3 className="font-semibold text-gray-800 text-sm">{task.taskname}</h3>
       <p className="text-xs text-gray-500 leading-snug">{task.description}</p>
       <div className="flex justify-between items-center text-xs text-gray-400 pt-2 border-t border-gray-100">
-        <div>
+        {/* <div>
           <span className="font-medium text-gray-500">👥 Users</span>
         </div>
         <div className="flex gap-2">
           <span>💬 0</span>
           <span>📎 0</span>
-        </div>
+        </div> */}
         <div className="flex gap-2 items-center">
           <button
             onClick={() => onDeleteTask(task.taskid)}
@@ -69,7 +76,16 @@ const Task = ({ task, onDeleteTask, onOpenSubtasks }) => {
   );
 };
 
-const TaskColumn = ({ title, tasks, status, onTaskDrop, handleAddClick, priority, onDeleteTask, onOpenSubtasks }) => {
+const TaskColumn = ({
+  title,
+  tasks,
+  status,
+  onTaskDrop,
+  handleAddClick,
+  priority,
+  onDeleteTask,
+  onOpenSubtasks,
+}) => {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "TASK",
     drop: (item) => onTaskDrop(item.taskid, status),
@@ -88,13 +104,21 @@ const TaskColumn = ({ title, tasks, status, onTaskDrop, handleAddClick, priority
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center gap-2">
           <h2 className="font-semibold text-lg text-gray-700">{title}</h2>
-          <button className="text-gray-500 hover:text-purple-600" onClick={() => handleAddClick(title)}>
+          <button
+            className="text-gray-500 hover:text-purple-600"
+            onClick={() => handleAddClick(title)}
+          >
             <Plus size={16} />
           </button>
         </div>
-        <span className="text-sm bg-gray-300 px-2 rounded-full">{tasks.length}</span>
+        <span className="text-sm bg-gray-300 px-2 rounded-full">
+          {tasks.length}
+        </span>
       </div>
-      <div className="space-y-4 overflow-y-auto pr-2 no-scrollbar" style={{ flex: 1 }}>
+      <div
+        className="space-y-4 overflow-y-auto pr-2 no-scrollbar"
+        style={{ flex: 1 }}
+      >
         {tasks.length === 0 ? (
           <p className="text-xs text-gray-500">No tasks here</p>
         ) : (
@@ -116,10 +140,16 @@ const TaskColumn = ({ title, tasks, status, onTaskDrop, handleAddClick, priority
 
 export default function Taskboard() {
   const dispatch = useDispatch();
-  const selectedEventId = useSelector((state) => state.eventReducer.selectedEvent);
-  const selectedEventName = useSelector((state) => state.eventReducer.selectedEventName);
+  const selectedEventId = useSelector(
+    (state) => state.eventReducer.selectedEvent
+  );
+  const selectedEventName = useSelector(
+    (state) => state.eventReducer.selectedEventName
+  );
   const todotasks = useSelector((state) => state.taskReducer.todotasks);
-  const onprogresstasks = useSelector((state) => state.taskReducer.onprogresstasks);
+  const onprogresstasks = useSelector(
+    (state) => state.taskReducer.onprogresstasks
+  );
   const donetasks = useSelector((state) => state.taskReducer.donetasks);
 
   const [showSubTasks, setShowSubtasks] = useState(false);
@@ -159,7 +189,7 @@ export default function Taskboard() {
   const handleDeleteTask = (taskid) => {
     socketRef.emit("task:delete", { taskid });
     const handleTaskDeleted = (taskid) => {
-      dispatch(deleteTask(taskid ));
+      dispatch(deleteTask(taskid));
     };
     socketRef.on("task:deleted", handleTaskDeleted);
     return () => {
@@ -239,11 +269,18 @@ export default function Taskboard() {
         </div>
       )}
       {showSubTasks && <SubtaskDialog onClose={() => setShowSubtasks(false)} />}
-      {showTodoTaskForm && <TaskForm onClose={() => setShowTodoTaskForm(false)} status="todo" />}
-      {showOnProgressTaskForm && (
-        <TaskForm onClose={() => setShowOnProgressTaskForm(false)} status="on progress" />
+      {showTodoTaskForm && (
+        <TaskForm onClose={() => setShowTodoTaskForm(false)} status="todo" />
       )}
-      {showDoneTaskForm && <TaskForm onClose={() => setShowDoneTaskForm(false)} status="done" />}
+      {showOnProgressTaskForm && (
+        <TaskForm
+          onClose={() => setShowOnProgressTaskForm(false)}
+          status="on progress"
+        />
+      )}
+      {showDoneTaskForm && (
+        <TaskForm onClose={() => setShowDoneTaskForm(false)} status="done" />
+      )}
     </>
   );
 }

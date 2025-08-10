@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { X } from "lucide-react";
 import Errorpopup from "../components/Errorpopup"; // Adjust path if necessary
 import { socketRef } from "../features/socket";
-import { useDispatch, useSelector } from "react-redux";
-import { addTask } from "../features/taskSlice";
+import {  useSelector } from "react-redux";
+// import { addTask } from "../features/taskSlice";
 
 function TaskForm({ onClose,status }) {
   const [taskname, setTaskname] = useState("");
@@ -11,7 +11,7 @@ function TaskForm({ onClose,status }) {
   const [duedate, setDuedate] = useState("");
   const [priority, setPriority] = useState("medium");
   const [error, setError] = useState("");
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const eventid = useSelector((state) => state.eventReducer.selectedEvent);
 
   const handleSubmit = (e) => {

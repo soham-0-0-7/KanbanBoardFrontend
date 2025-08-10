@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { socketRef } from "./socket.js";
+// import { socketRef } from "./socket.js";
 
 // Helper to calculate days left from today to due date
 function getDaysLeft(dueDateStr) {
@@ -66,16 +66,16 @@ export const taskSlice = createSlice({
                 alert(`Task "${t.taskname}" is due in ${daysLeft} day(s)!`);
             }
         },
-        updateTaskStatus: (state, action) => {
-            const { taskid, status } = action.payload;
-            const task = state.tasks.find((task) => task.taskid === taskid);
-            if (task) {
-                task.status = status;
-            }
-            state.todotasks = state.tasks.filter((task) => task.status === "todo");
-            state.onprogresstasks = state.tasks.filter((task) => task.status === "on progress");
-            state.donetasks = state.tasks.filter((task) => task.status === "done");
-        },
+        // updateTaskStatus: (state, action) => {
+        //     const { taskid, status } = action.payload;
+        //     const task = state.tasks.find((task) => task.taskid === taskid);
+        //     if (task) {
+        //         task.status = status;
+        //     }
+        //     state.todotasks = state.tasks.filter((task) => task.status === "todo");
+        //     state.onprogresstasks = state.tasks.filter((task) => task.status === "on progress");
+        //     state.donetasks = state.tasks.filter((task) => task.status === "done");
+        // },
 
         deleteTask: (state, action) => {
             // socketRef.emit("task:delete",{
@@ -139,7 +139,7 @@ export const taskSlice = createSlice({
             });
         },
 
-        clearTasks: (state, action) => {
+        clearTasks: (state) => {
             state.tasks = [];
             state.todotasks = [];
             state.onprogresstasks = [];

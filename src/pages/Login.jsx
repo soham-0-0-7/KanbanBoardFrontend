@@ -38,6 +38,7 @@ function Login() {
       if (isSignup) return setSuccess(data.message);
       localStorage.setItem("token", data.token);
       navigate("/dashboard");
+    // eslint-disable-next-line no-unused-vars
     } catch (err) {
       setError("Server error");
     }

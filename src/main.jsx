@@ -22,12 +22,12 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <React.StrictMode>
+    {/* <React.StrictMode> */}
       <BrowserRouter>
         <DndProvider backend={HTML5Backend}>
           <App />
         </DndProvider>
       </BrowserRouter>
-    </React.StrictMode>
+    {/* </React.StrictMode> */}
   </Provider>
 );
